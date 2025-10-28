@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\PassOptionsToPackage{numbers, compress}{natbib}
+
+\usepackage[final]{nips_2017}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{subfiles}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{subfiles}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subfiles}
+
+\newcommand\todo[1]{\textcolor{red}{[[#1]]}}
+\newcommand\mc[1]{\mathcal{#1}}
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+\newcommand{\kq}{q}
+\newcommand{\km}{k}
+\newcommand{\vq}{o}
+\newcommand{\vm}{m}
+\newcommand{\Wkq}{W_q}
+\newcommand{\Wkm}{W_k}
+\newcommand{\Wvq}{W_o}
+\newcommand{\Wvm}{W_m}
+\newcommand{\dmodel}{d_{\text{model}}}
+\newcommand{\dffn}{d_{\text{ffn}}}
+\newcommand{\dff}{d_{\text{ff}}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand\concat[3]{\left[#1 \parallel_#3 #2\right]}
+
+\title{Attention Is All You Need}
+\author{
+  \AND
+  Ashish Vaswani\thanks{Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started the effort to evaluate this idea.
+Ashish, with Illia, designed and implemented the first Transformer models and has been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head attention and the parameter-free position representation and became the other person involved in nearly every detail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and tensor2tensor. Llion also experimented with novel model variants, was responsible for our initial codebase, and efficient inference and visualizations. Lukasz and Aidan spent countless long days designing various parts of and implementing tensor2tensor, replacing our earlier codebase, greatly improving results and massively accelerating our research.
+}\\
+  Google Brain\\
+  \texttt{avaswani@google.com}\\
+  \And
+  Noam Shazeer\footnotemark[1]\\
+  Google Brain\\
+  \texttt{noam@google.com}\\
+  \And
+  Niki Parmar\footnotemark[1]\\
+  Google Research\\
+  \texttt{nikip@google.com}\\  
+  \And
+  Jakob Uszkoreit\footnotemark[1]\\
+  Google Research\\
+  \texttt{usz@google.com}\\
+  \And  
+  Llion Jones\footnotemark[1]\\
+  Google Research\\
+  \texttt{llion@google.com}\\   
+  \And
+  Aidan N. Gomez\footnotemark[1] \hspace{1.7mm}\thanks{Work performed while at Google Brain.}\\
+  University of Toronto\\
+  \texttt{aidan@cs.toronto.edu}
+  \And
+  {\L}ukasz Kaiser\footnotemark[1]\\
+  Google Brain\\
+  \texttt{lukaszkaiser@google.com}\\
+  \And
+  Illia Polosukhin\footnotemark[1]\hspace{1.7mm} \thanks{Work performed while at Google Research.}\\
+  \texttt{illia.polosukhin@gmail.com}\\  
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being  more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU.  On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing  both with large and limited training data.
+\end{abstract}
+
+$body$
+
+\include{bibliography.tex}
+
+\end{document}
