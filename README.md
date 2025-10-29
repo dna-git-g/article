@@ -5,6 +5,6 @@ This repository provides a example of generating a PDF of the paper "Attention I
 - LaTeX
 - make
 # Build
-'''
+```
 make all
-'''
+```
