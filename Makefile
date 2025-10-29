@@ -6,6 +6,12 @@ all: article.md
 article.md:
 	cat \
 		introduction.md \
+		background.md \
+		model_architecture.md \
+		why_self_attention.md \
+		training.md \
+		results.md \
+		conclusion.md \
 		>> article.md
 
 clean:

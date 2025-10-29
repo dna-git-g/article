@@ -17,8 +17,6 @@ Table \ref{tab:wmt-results} summarizes our results and compares our translation 
 
 \input{tables/table3.tex}
 
-%Table \ref{tab:ende-results}. Our base model for this task uses 6 attention layers, 512 hidden dim, 2048 filter dim, 8 attention heads with both attention and symbol dropout of 0.2 and 0.1 respectively. Increasing the filter size of our feed forward component to 8192 increases the BLEU score on En $\to$ De by $?$. For both the models, we use beam search decoding of size $?$ and length penalty with an alpha of $?$
-
 To evaluate the importance of different components of the Transformer, we varied our base model in different ways, measuring the change in performance on English-to-German translation on the development set, newstest2013. We used beam search as described in the previous section, but no checkpoint averaging.  We present these results in Table~\ref{tab:variations}.  
 
 In Table~\ref{tab:variations} rows (A), we vary the number of attention heads and the attention key and value dimensions, keeping the amount of computation constant, as described in Section \ref{sec:multihead}. While single-head attention is 0.9 BLEU worse than the best setting, quality also drops off with too many heads.
@@ -26,6 +24,8 @@ In Table~\ref{tab:variations} rows (A), we vary the number of attention heads an
 In Table~\ref{tab:variations} rows (B), we observe that reducing the attention key size $d_k$ hurts model quality. This suggests that determining compatibility is not easy and that a more sophisticated compatibility function than dot product may be beneficial. We further observe in rows (C) and (D) that, as expected, bigger models are better, and dropout is very helpful in avoiding over-fitting.  In row (E) we replace our sinusoidal positional encoding with learned positional embeddings \citep{JonasFaceNet2017}, and observe nearly identical results to the base model.
 
 ## English Constituency Parsing
+
+\input{tables/table4.tex}
 
 To evaluate if the Transformer can generalize to other tasks we performed experiments on English constituency parsing. This task presents specific challenges: the output is subject to strong structural constraints and is significantly longer than the input.
 Furthermore, RNN sequence-to-sequence models have not been able to attain state-of-the-art results in small-data regimes \cite{KVparse15}.
@@ -37,3 +37,5 @@ We performed only a small number of experiments to select the dropout, both atte
 Our results in Table~\ref{tab:parsing-results} show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar \cite{dyer-rnng:16}.
 
 In contrast to RNN sequence-to-sequence models \citep{KVparse15}, the Transformer outperforms the BerkeleyParser \cite{petrov-EtAl:2006:ACL} even when training only on the WSJ training set of 40K sentences.
+
+
