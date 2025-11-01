@@ -1,19 +1,17 @@
+$passoptions.latex()$
 \documentclass{article}
 
-\PassOptionsToPackage{numbers, compress}{natbib}
-\providecommand{\pandocbounded}[1]{#1}
+\usepackage[nonatbib, final]{nips_2017}
 
-\usepackage[final]{nips_2017}
-
-\usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage{amsfonts}       % blackboard math symbols
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypography
+\usepackage{nicefrac}
+\usepackage{microtype}
 \usepackage{subfiles}
 \usepackage{xcolor}
 \usepackage{multirow}
@@ -22,6 +20,10 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{subfiles}
+
+$font-settings.latex()$
+$common.latex()$
+$hypersetup.latex()$
 
 \newcommand\todo[1]{\textcolor{red}{[[#1]]}}
 \newcommand\mc[1]{\mathcal{#1}}
@@ -78,7 +80,6 @@ Ashish, with Illia, designed and implemented the first Transformer models and ha
   \texttt{illia.polosukhin@gmail.com}\\  
 }
 
-
 \begin{document}
 
 \maketitle
@@ -88,8 +89,6 @@ The dominant sequence transduction models are based on complex recurrent or conv
 \end{abstract}
 
 $body$
-
-\include{bibliography.tex}
 
 \include{visualizations.tex}
 
